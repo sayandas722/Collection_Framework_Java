@@ -263,7 +263,7 @@ public class LinkedList {
 
         return true;
     }
-    //cycle dtetction in linked list using hare-turtle approach
+    //cycle detection in linked list using hare-turtle approach
     public static boolean hasCycle(Node head) {
         if(head==null)
             return false;
@@ -271,8 +271,8 @@ public class LinkedList {
         Node turtle=head;
         while(hare!=null && hare.next!=null)
         {
-            hare=hare.next.next;//hare jumps twice
-            turtle=turtle.next;//turtle jumps once
+            hare=hare.next.next;//hare jumps two places
+            turtle=turtle.next;//turtle jumps one places
             if(hare==turtle)//at some point, the will meet each other which indicates linked list is cyclic
                 return true;
         }  
