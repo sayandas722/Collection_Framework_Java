@@ -263,13 +263,30 @@ public class LinkedList {
 
         return true;
     }
+    //cycle dtetction in linked list using hare-turtle approach
+    public static boolean hasCycle(Node head) {
+        if(head==null)
+            return false;
+        Node hare=head;
+        Node turtle=head;
+        while(hare!=null && hare.next!=null)
+        {
+            hare=hare.next.next;//hare jumps twice
+            turtle=turtle.next;//turtle jumps once
+            if(hare==turtle)//at some point, the will meet each other which indicates linked list is cyclic
+                return true;
+        }  
+    return false;//if linked list is non-cyclic      
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
-        ll.addFirst(1);
-        ll.addLast(5);
-        ll.addLast(6);
+        ll.addFirst(3);
+        ll.addLast(0);
+        ll.addLast(-4);
+        tail.next=head.next;// to make the linked list cyclic
+        System.out.println(hasCycle(ll.head));
         ll.AddMiddle(2, 3);
         ll.AddMiddle(3, 4);
         ll.removeFirst();
